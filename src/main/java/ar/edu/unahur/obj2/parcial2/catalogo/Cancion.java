@@ -1,5 +1,7 @@
 package ar.edu.unahur.obj2.parcial2.catalogo;
 
+import ar.edu.unahur.obj2.parcial2.planes.Configuracion;
+
 public class Cancion extends Pista{
     private final String artista;
     private final String genero;
@@ -31,6 +33,6 @@ public class Cancion extends Pista{
 
     @Override
     protected Double getCoeficienteRegalia() {
-        return 0.07;
+        return Configuracion.COEFICIENTE_CANCION;
     } 
 }

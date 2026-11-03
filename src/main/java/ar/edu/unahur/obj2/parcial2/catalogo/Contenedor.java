@@ -3,7 +3,6 @@ package ar.edu.unahur.obj2.parcial2.catalogo;
 import java.util.ArrayList;
 import java.util.List;
 
-//Kevin: Hago una clase contenedor ya que tanto playlist y album comparten listas/metodos/operaciones similares, y asi evitamos repetir codigo. Esto vendria ser el "compuesto".
 public abstract class Contenedor extends ElementoCatalogo { 
     protected final List<IElementoDelCatalogo> elementos = new ArrayList<>();
 
@@ -30,7 +29,6 @@ public abstract class Contenedor extends ElementoCatalogo {
             .toList();
     }
 
-    //Kevin: agrego un cambio sutil no cambia nada mas que en la forma como se lee e interpreta
     @Override
     protected Double getCoeficienteRegalia() {
         Integer duracionTotal = getDuracionEnSegundos();

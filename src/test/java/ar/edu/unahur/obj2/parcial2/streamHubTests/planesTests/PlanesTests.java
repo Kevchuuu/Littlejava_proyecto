@@ -4,11 +4,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import ar.edu.unahur.obj2.parcial2.planes.AltaCalidad;
 import ar.edu.unahur.obj2.parcial2.planes.Calidad;
 import ar.edu.unahur.obj2.parcial2.planes.Configuracion;
+import ar.edu.unahur.obj2.parcial2.planes.DescargasOffline;
 import ar.edu.unahur.obj2.parcial2.planes.Lossless;
 import ar.edu.unahur.obj2.parcial2.planes.PlanBase;
 import ar.edu.unahur.obj2.parcial2.planes.PlanSuscripcion;
@@ -106,29 +109,30 @@ public class PlanesTests {
     
     @Test
     public void testPlanConDecoradoresIndependientementeDelOrden() {
-    PlanSuscripcion plan1 = new PlanBase();
-    plan1 = new AltaCalidad(plan1);
-    plan1 = new Lossless(plan1);
-    plan1 = new SinPublicidad(plan1);
+        PlanSuscripcion plan1 = new PlanBase();
+        plan1 = new AltaCalidad(plan1);
+        plan1 = new Lossless(plan1);
+        plan1 = new SinPublicidad(plan1);
 
-    PlanSuscripcion plan2 = new PlanBase();
-    plan2 = new SinPublicidad(plan2);
-    plan2 = new Lossless(plan2);
-    plan2 = new AltaCalidad(plan2);
+        PlanSuscripcion plan2 = new PlanBase();
+        plan2 = new SinPublicidad(plan2);
+        plan2 = new Lossless(plan2);
+        plan2 = new AltaCalidad(plan2);
 
-    assertEquals(2400, plan1.costoMensual(), 0.01);
-    assertEquals(plan1.costoMensual(), plan2.costoMensual(), 0.01);
+        assertEquals(2400, plan1.costoMensual(), 0.01);
+        assertEquals(plan1.costoMensual(), plan2.costoMensual(), 0.01);
 
-    assertEquals(Calidad.LOSSLESS, plan1.calidadMaxima());
-    assertEquals(plan1.calidadMaxima(), plan2.calidadMaxima());
+        assertEquals(Calidad.LOSSLESS, plan1.calidadMaxima());
+        assertEquals(plan1.calidadMaxima(), plan2.calidadMaxima());
 
-    assertTrue(plan1.permiteContenidoPremium());
-    assertTrue(plan2.permiteContenidoPremium());
+        assertTrue(plan1.permiteContenidoPremium());
+        assertTrue(plan2.permiteContenidoPremium());
 
-    assertFalse(plan1.permiteDescargas());
-    assertFalse(plan2.permiteDescargas());
+        assertFalse(plan1.permiteDescargas());
+        assertFalse(plan2.permiteDescargas());
 
-    assertFalse(plan1.tienePublicidad());
-    assertFalse(plan2.tienePublicidad());
-}
+        assertFalse(plan1.tienePublicidad());
+        assertFalse(plan2.tienePublicidad());
+    }
+
 }

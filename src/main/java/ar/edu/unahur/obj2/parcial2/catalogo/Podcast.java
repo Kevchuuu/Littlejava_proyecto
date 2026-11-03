@@ -3,7 +3,8 @@ package ar.edu.unahur.obj2.parcial2.catalogo;
 import java.util.ArrayList;
 import java.util.List;
 
-//Kevin: representaria una "hoja" del composite.
+import ar.edu.unahur.obj2.parcial2.planes.Configuracion;
+
 public class Podcast extends ElementoCatalogo{
     private final String conductor;
     private final Boolean esPremium;
@@ -47,6 +48,6 @@ public class Podcast extends ElementoCatalogo{
 
     @Override
     protected Double getCoeficienteRegalia() {
-        return 0.12;
+        return Configuracion.COEFICIENTE_PODCAST;
     }
 }

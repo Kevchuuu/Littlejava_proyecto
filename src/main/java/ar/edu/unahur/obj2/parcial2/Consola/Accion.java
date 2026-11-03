@@ -6,12 +6,12 @@ public interface Accion {
  
     void ejecutar(Reproductor reproductor);
 
-    default boolean admiteDeshacer() {
+    default Boolean admiteDeshacer() {
         return false;
     }
  
     default void deshacer(Reproductor reproductor) {
-        throw new NoAdmiteDeshacerException("No se puede deshacer esta accion");
+        throw new NoAdmiteDeshacerException();
     }
 }
  

@@ -1,13 +1,16 @@
 package ar.edu.unahur.obj2.parcial2.usuario;
 
 import java.util.ArrayList;
+
 import java.util.List;
+
 import ar.edu.unahur.obj2.parcial2.Consola.Reproductor;
 import ar.edu.unahur.obj2.parcial2.catalogo.Cancion;
 import ar.edu.unahur.obj2.parcial2.catalogo.Pista;
 import ar.edu.unahur.obj2.parcial2.planes.PlanSuscripcion;
 
 public class Usuario {
+
     private final String nombre;
     private final List<Pista> historial = new ArrayList<>();
     private final PlanSuscripcion plan;
@@ -36,14 +39,14 @@ public class Usuario {
     }
 
     public void agregarAlHistorial(Pista pista) {
-        this.historial.add(pista);
+        historial.add(pista);
     }
 
-    public Cancion getUltimaCancion() {
+    public Cancion getUltimaCancion(){
         return historial.stream()
                 .filter(Cancion.class::isInstance)
                 .map(Cancion.class::cast)
-                .reduce((primera, segunda) -> segunda)
+                .reduce((primero, segundo) -> segundo)
                 .orElse(null);
     }
 }

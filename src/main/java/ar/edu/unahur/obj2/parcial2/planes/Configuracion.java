@@ -1,6 +1,11 @@
 package ar.edu.unahur.obj2.parcial2.planes;
 
 public class Configuracion {
+
+    public static final double COEFICIENTE_CANCION = 0.07;
+    public static final double COEFICIENTE_PODCAST = 0.12;
+    public static final double COEFICIENTE_AUDIOLIBRO = 0.15;
+
     public static final Integer COSTO_PLAN_BASE = 1000;
     public static final Integer COSTO_ALTA_CALIDAD = 300;
     public static final Integer COSTO_LOSSLESS = 600;

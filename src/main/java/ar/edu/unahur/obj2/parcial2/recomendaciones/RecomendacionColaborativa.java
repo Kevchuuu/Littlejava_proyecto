@@ -32,6 +32,7 @@ public class RecomendacionColaborativa implements IAlgoritmoRecomendacion {
     private Integer cancionesEnComun(Usuario u1, Usuario u2) {
         return u1.getHistorial().stream()
                 .filter(Cancion.class::isInstance)
+                .distinct()
                 .filter(p -> u2.getHistorial().contains(p))
                 .toList()
                 .size();

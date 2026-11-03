@@ -1,5 +1,7 @@
 package ar.edu.unahur.obj2.parcial2.catalogo;
 
+import ar.edu.unahur.obj2.parcial2.planes.Configuracion;
+
 public class AudioLibro extends Pista {
     private final String autor;
 
@@ -14,6 +16,6 @@ public class AudioLibro extends Pista {
 
     @Override
     protected Double getCoeficienteRegalia() {
-        return 0.15;
+        return Configuracion.COEFICIENTE_AUDIOLIBRO;
     } 
 }

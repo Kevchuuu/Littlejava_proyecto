@@ -22,7 +22,7 @@ public class Skip implements Accion {
     }
 
     @Override
-    public boolean admiteDeshacer() {
+    public Boolean admiteDeshacer() {
         return true;
     }
 

@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Deque;
 
 import ar.edu.unahur.obj2.parcial2.excepciones.SinAccionesParaDeshacerException;
+import ar.edu.unahur.obj2.parcial2.excepciones.StreamHubException;
 
 public class ConsolaReproduccion {
     private final Reproductor reproductor;
@@ -29,7 +30,7 @@ public class ConsolaReproduccion {
                 if (accion.admiteDeshacer()) {
                     deshacibles.add(accion);       
                 }
-            } catch (RuntimeException  exception) {
+            } catch (StreamHubException  exception) {
                 anomalias.add(new Anomalia(accion, exception.getMessage()));  
             }
         }
@@ -37,7 +38,7 @@ public class ConsolaReproduccion {
 
     public void deshacerUltimo() {
         if (deshacibles.isEmpty()) {
-            throw new SinAccionesParaDeshacerException("Sin accion para deshacer");
+            throw new SinAccionesParaDeshacerException();
         }
         Accion ultima = deshacibles.remove(deshacibles.size() - 1);
         ultima.deshacer(reproductor);

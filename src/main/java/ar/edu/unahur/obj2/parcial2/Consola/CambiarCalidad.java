@@ -3,7 +3,8 @@ package ar.edu.unahur.obj2.parcial2.Consola;
 import ar.edu.unahur.obj2.parcial2.planes.Calidad;
 
 public class CambiarCalidad implements Accion {
-    private Calidad calidad;   
+    private Calidad calidad;
+    private Calidad calidadPrevia;
 
     public CambiarCalidad(Calidad calidad) {
         this.calidad = calidad;
@@ -13,13 +14,19 @@ public class CambiarCalidad implements Accion {
         this.calidad = nuevaCalidad;
     }
 
-    public Calidad getCalidad() {
-        return calidad;
+    @Override
+    public void ejecutar(Reproductor reproductor) {
+        this.calidadPrevia = reproductor.getCalidad();
+        reproductor.cambiarCalidad(calidad);
     }
 
     @Override
-    public void ejecutar(Reproductor reproductor) {
-        reproductor.cambiarCalidad(calidad);   
+    public Boolean admiteDeshacer() {
+        return true;
+    }
+
+    @Override
+    public void deshacer(Reproductor reproductor) {
+        reproductor.cambiarCalidad(calidadPrevia);
     }
 }
-

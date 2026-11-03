@@ -2,7 +2,6 @@ package ar.edu.unahur.obj2.parcial2.catalogo;
 
 import java.util.List;
 
-//Kevin: representaria las hojas del composite a parte del podcast.
 public abstract class Pista extends ElementoCatalogo {
     private final Integer duracionEnSegundos;
     private final Boolean esPremium;

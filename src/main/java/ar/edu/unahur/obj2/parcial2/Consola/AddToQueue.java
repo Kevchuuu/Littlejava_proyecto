@@ -2,14 +2,14 @@ package ar.edu.unahur.obj2.parcial2.Consola;
 
 import java.util.List;
 
-import ar.edu.unahur.obj2.parcial2.catalogo.ElementoCatalogo;
+import ar.edu.unahur.obj2.parcial2.catalogo.IElementoDelCatalogo;
 import ar.edu.unahur.obj2.parcial2.catalogo.Pista;
 
 public class AddToQueue implements Accion {
-    private final ElementoCatalogo elemento;
+    private final IElementoDelCatalogo elemento;
     private List<Pista> agregadas;   
 
-    public AddToQueue(ElementoCatalogo elemento) {
+    public AddToQueue(IElementoDelCatalogo elemento) {
         this.elemento = elemento;
     }
 
@@ -21,7 +21,7 @@ public class AddToQueue implements Accion {
     }
 
     @Override
-    public boolean admiteDeshacer() {
+    public Boolean admiteDeshacer() {
         return true;
     }
 
